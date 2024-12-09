@@ -21,22 +21,10 @@ function setCookie(name, value, days) {
   const expires = `expires=${date.toUTCString()}`;
   document.cookie = `${name}=${value}; ${expires}; path=/`;
 }
-if (getCookie('darkMode') === 'enabled') {
-  themeLink.href = 'dark-theme.css';
-}
-
 function applyTheme() {
   const userTheme = getCookie('darkMode'); 
   if (userTheme === 'enabled') {
     handleModeBtnClick()
-  } else {
-    
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      themeLink.href = 'dark-theme.css'; 
-    }
   }
 }
-
-toggleBtn.addEventListener('click', toggleDarkMode);
-
 applyTheme();
